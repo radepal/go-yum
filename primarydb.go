@@ -239,7 +239,7 @@ func (c *PrimaryDatabase) Packages() (PackageEntries, error) {
 		}
 
 		// scan the values into the slice
-		if err = rows.Scan(&p.Key, &p.Name, &p.Architecture, &p.Versions.Epoch, &p.Versions.Version, &p.Versions.Release, &p.Size.Package, &p.Size.Installed, &p.Size.Archive, &p.Location.Href, &p.Checksums.Hash, &p.Checksums.Type, &p.Time.Build); err != nil {
+		if err = rows.Scan(&p.Key, &p.PackageName, &p.Arch, &p.Versions.Epoch, &p.Versions.Version, &p.Versions.Release, &p.Size.Package, &p.Size.Installed, &p.Size.Archive, &p.Location.Href, &p.Checksums.Hash, &p.Checksums.Type, &p.Time.Build); err != nil {
 			return nil, fmt.Errorf("Error scanning packages: %v", err)
 		}
 

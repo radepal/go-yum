@@ -1,7 +1,6 @@
 package yum
 
 import (
-	"compress/gzip"
 	"encoding/xml"
 	"fmt"
 	"io"
