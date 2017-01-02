@@ -23,9 +23,9 @@ type PackageEntry struct {
 }
 
 type PackageEntrySize struct {
-	Package   uint64 `xml:"type,attr"`
-	Installed uint64 `xml:"installed,attr"`
-	Archive   uint64 `xml:"archive,attr"`
+	Package   int64 `xml:"type,attr"`
+	Installed int64 `xml:"installed,attr"`
+	Archive   int64 `xml:"archive,attr"`
 }
 
 type PackageEntryVersion struct {
@@ -78,15 +78,15 @@ func (c *PackageEntry) ChecksumType() string {
 	return c.Checksums.Type
 }
 
-func (c *PackageEntry) PackageSize() uint64 {
+func (c *PackageEntry) PackageSize() int64 {
 	return c.Size.Package
 }
 
-func (c *PackageEntry) InstallSize() uint64 {
+func (c *PackageEntry) InstallSize() int64 {
 	return c.Size.Installed
 }
 
-func (c *PackageEntry) ArchiveSize() uint64 {
+func (c *PackageEntry) ArchiveSize() int64 {
 	return c.Size.Archive
 }
 
