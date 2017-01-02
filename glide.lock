@@ -1,0 +1,22 @@
+hash: 589de39e1ed012fc8df9630626758dfceee38f0fce22fe0348cf351de20b6a64
+updated: 2017-01-02T20:12:26.378946088+01:00
+imports:
+- name: github.com/cavaliercoder/go-rpm
+  version: 067941e17bc40982becb50f059e946e9df9c7dbc
+- name: github.com/mattn/go-sqlite3
+  version: ca5e3819723d8eeaf170ad510e7da1d6d2e94a08
+- name: golang.org/x/crypto
+  version: f6b343c37ca80bfa8ea539da67a0b621f84fab1d
+  subpackages:
+  - cast5
+  - openpgp
+  - openpgp/armor
+  - openpgp/elgamal
+  - openpgp/errors
+  - openpgp/packet
+  - openpgp/s2k
+- name: golang.org/x/net
+  version: 45e771701b814666a7eb299e6c7a57d0b1799e91
+  subpackages:
+  - context
+testImports: []
