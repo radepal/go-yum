@@ -1,10 +1,14 @@
-hash: 589de39e1ed012fc8df9630626758dfceee38f0fce22fe0348cf351de20b6a64
-updated: 2017-01-02T20:12:26.378946088+01:00
+hash: 9290630e2d80d95ec5c5de279fee604d52146dfa83e329c49ccf4d2ffe176803
+updated: 2017-01-02T22:12:00.140088777+01:00
 imports:
 - name: github.com/cavaliercoder/go-rpm
   version: 067941e17bc40982becb50f059e946e9df9c7dbc
+- name: github.com/cavaliercoder/grab
+  version: e403b038e10c3c6aaf022ab0f8502bd659604140
 - name: github.com/mattn/go-sqlite3
   version: ca5e3819723d8eeaf170ad510e7da1d6d2e94a08
+- name: github.com/pivotal-golang/bytefmt
+  version: b12c1522f4cbb5f35861bd5dd2c39a4fa996441a
 - name: golang.org/x/crypto
   version: f6b343c37ca80bfa8ea539da67a0b621f84fab1d
   subpackages:
@@ -19,4 +23,6 @@ imports:
   version: 45e771701b814666a7eb299e6c7a57d0b1799e91
   subpackages:
   - context
+- name: xi2.org/x/xz
+  version: 19aeb13c4e7cb6bd3188dfede73840f33455425a
 testImports: []

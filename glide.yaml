@@ -1,6 +1,7 @@
 package: github.com/radepal/go-yum
 import:
 - package: github.com/cavaliercoder/go-rpm
+- package: github.com/cavaliercoder/grab
 - package: golang.org/x/crypto
   subpackages:
   - openpgp
@@ -9,3 +10,4 @@ import:
 - package: golang.org/x/net
   subpackages:
   - context
+- package: github.com/pivotal-golang/bytefmt
