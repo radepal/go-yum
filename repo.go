@@ -206,7 +206,7 @@ func (c *Repo) Sync(cachedir, packagedir string) error {
 			} else {
 				b, err := hex.DecodeString(sum)
 				if err != nil {
-					Errorf(err, "Error decoding checksum for package %p", p)
+					Errorf(err, "Error decoding checksum for package %v", p)
 				} else {
 					req.SetChecksum(p.ChecksumType(), b)
 					reqs = append(reqs, req)

@@ -66,7 +66,7 @@ func Logf(category int, format string, a ...interface{}) {
 	case LOG_CAT_DEBUG:
 		cat = "DEBUG"
 	default:
-		panic(fmt.Sprintf("Unrecognized log category: %s", category))
+		panic(fmt.Sprintf("Unrecognized log category: %d", category))
 	}
 
 	logger.Printf("%s %s", cat, fmt.Sprintf(format, a...))
