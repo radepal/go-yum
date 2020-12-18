@@ -3,11 +3,12 @@ package yum
 import (
 	"database/sql"
 	"fmt"
-	"github.com/cavaliercoder/go-rpm"
-	_ "github.com/mattn/go-sqlite3"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/cavaliercoder/go-rpm"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // TODO: Add support for XML primary dbs
@@ -265,11 +266,29 @@ func (c *PrimaryDatabase) DependenciesByPackage(pkgKey int, typ string) (rpm.Dep
 	// parse results
 	deps := make(rpm.Dependencies, 0)
 	for rows.Next() {
+		var flgsNullable, versionNullable, releaseNullable sql.NullString
+		var epochNullable sql.NullInt32
 		var flgs, name, version, release string
 		var epoch, iflgs int
 
-		if err = rows.Scan(&name, &flgs, &epoch, &version, &release); err != nil {
+		if err = rows.Scan(&name, &flgsNullable, &epochNullable, &versionNullable, &releaseNullable); err != nil {
 			return nil, fmt.Errorf("Error reading dependencies: %v", err)
+		}
+
+		if flgsNullable.Valid {
+			flgs = flgsNullable.String
+		}
+
+		if epochNullable.Valid {
+			epoch = int(epochNullable.Int32)
+		}
+
+		if versionNullable.Valid {
+			version = versionNullable.String
+		}
+
+		if releaseNullable.Valid {
+			release = releaseNullable.String
 		}
 
 		switch flgs {
