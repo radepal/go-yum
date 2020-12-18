@@ -14,7 +14,7 @@ type RepoMetadata struct {
 	XMLNS    string   `xml:"xmlns,attr"`
 	XMLNSRPM string   `xml:"xmlns:rpm,attr"`
 
-	Revision  int            `xml:"revision"`
+	Revision  string         `xml:"revision"`
 	Databases []RepoDatabase `xml:"data"`
 }
 

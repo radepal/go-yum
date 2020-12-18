@@ -23,6 +23,6 @@ imports:
   version: 45e771701b814666a7eb299e6c7a57d0b1799e91
   subpackages:
   - context
-- name: xi2.org/x/xz
-  version: 19aeb13c4e7cb6bd3188dfede73840f33455425a
+- name: github.com/xi2/xz
+  version: 48954b6210f8d154cb5f8484d3a3e1f83489309e
 testImports: []
