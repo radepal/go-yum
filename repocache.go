@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
 	"xi2.org/x/xz"
 )
 
@@ -29,24 +30,23 @@ func (c *RepoCache) Update() error {
 	// select primary db
 	var primarydb *RepoDatabase = nil
 	for _, db := range repomd.Databases {
-		if db.Type == "primary" {
+		if db.Type == "primary" || db.Type == "primary_db" {
 			primarydb = &db
-			break
+
+			// download primary database
+			if _, err := c.downloadDatabase(primarydb); err != nil {
+				return err
+			}
+
+			// decompress primary database
+			if _, err = c.decompressDatabase(primarydb); err != nil {
+				return err
+			}
 		}
 	}
 
 	if primarydb == nil {
 		return fmt.Errorf("No primary database found for repo %v", c)
-	}
-
-	// download primary database
-	if _, err := c.downloadDatabase(primarydb); err != nil {
-		return err
-	}
-
-	// decompress primary database
-	if _, err = c.decompressDatabase(primarydb); err != nil {
-		return err
 	}
 
 	return nil
